@@ -6,6 +6,9 @@
 GitHub: [@hardmandev](https://github.com/HardManDev) \
 Email: <hardman.dev@protonmail.com>
 
+## About me
+Self-taught programmer for over 5 years. I want to find a job as a front-end developer or a back-end .NET developer. Read more hard skills section, it will tell you more.
+
 
 ## Hard skills
 **Knowledge of OOP and SOLID principles;** \
@@ -32,3 +35,32 @@ Minsk State College of Electronics: Computer operator (2017-2020)
 
 ## Projects
 ASP.NET Project: [Contacts Manager](https://github.com/HardManDev/contacts-manager/tree/dev)
+
+
+## Code example
+```js
+function topThreeWords(text) {
+    let words = text.match(/[\w'-]+/gi)
+    
+    if (words && words[0] != '\'') {
+        let top = []
+
+        words = words.map(w => w.trim().toLowerCase())
+
+        words.forEach(word1 => {
+            if (top.some(w => w[0] == word1))
+                return
+            
+            let count = 0
+            words.forEach(word2 => {
+                if (word1 === word2) count++
+            });
+            top.push([word1, count])
+        });
+
+        return top.sort((a, b) => b[1] - a[1]).slice(0, 3).map(e => e[0])
+    }
+
+    return []
+}
+```
